@@ -1,0 +1,35 @@
+ACTIVATION FUNCTION:
+An activation function decides whether a neuron should be fire or not
+--> without this networks behave like simple linear regression 
+--> DL becomes useless
+--> cannot learn complex patterns
+--> introduces non linearity
+
+1.Step function
+it accepts yes and no only
+binary values --> also called binary step function
+
+2.Sigmoid function
+it is smooth version of step function
+range = (0,1)
+it accepts nearest ones
+s-shaped curves
+binary classification
+
+3.Tanh function
+it takes -1 to +1
+
+4.ReLU 
+it can calculate non-linear data
+rectified linear unit
+most important activation in DL
+f(x) = max(0,x)
+
+5.leaky ReLU
+small leak when x<0
+convert negative to border values
+it adds a value of 0.01 to negative 
+
+6.Softmax 
+it calculates probabilities
+
