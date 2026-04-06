@@ -9,14 +9,14 @@ from sklearn.metrics import accuracy_score,confusion_matrix,classification_repor
 data = load_breast_cancer()
 df = pd.DataFrame(data.data,columns=data.feature_names)
 df["target"] = data.target
-#print(df)
-#print(df.isna().sum())
-#print(df["target"].value_counts())
-'''sns.countplot(x="target",data=df)
+print(df)
+print(df.isna().sum())
+print(df["target"].value_counts())
+sns.countplot(x="target",data=df)
 plt.title("target display")
 plt.show()
 df["mean radius"].hist()
-plt.show()'''
+plt.show()
 #model
 x = data.data
 y = data.target
@@ -35,12 +35,12 @@ model.compile(optimizer = "adam",loss = "binary_crossentropy",metrics = ["accura
 # model training
 history = model.fit(x_train_scaled,y_train,epochs = 15,batch_size = 30,validation_split = 0.2)
 loss,accuracy = model.evaluate(x_test_scaled,y_test)
-#print(accuracy,loss)
+print(accuracy,loss)
 y_pred = model.predict(x_test_scaled)
 y_pred_modi = (y_pred>0.5).astype(int)
-#print(accuracy_score(y_test,y_pred_modi))
-#print(confusion_matrix(y_test,y_pred_modi))
-#print(classification_report(y_test,y_pred_modi))
+print(accuracy_score(y_test,y_pred_modi))
+print(confusion_matrix(y_test,y_pred_modi))
+print(classification_report(y_test,y_pred_modi))
 print(history.history.keys())
 plt.figure(figsize=(7,7))
 plt.plot(history.history["loss"],linewidth = 10,linestyle = "--")
@@ -56,4 +56,7 @@ plt.title("model accuracy curve")
 plt.grid()
 plt.legend(["training accuracy","validation accuracy"])
 plt.show()
-#gradient descent is used to update weights to minimize the loss error 
+#gradient descent is used to update weights to minimize the loss error
+# optimizer internally calculates the gradient descent and update weights
+
+ 
